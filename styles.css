@@ -1,0 +1,6 @@
+/* Add application styles & imports to this file! */
+body{
+  padding: 20px;
+}
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
