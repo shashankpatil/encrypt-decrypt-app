@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
+import { AesAlgorithm } from './aes.security';
 
 @Component({
   selector: 'my-app',
@@ -11,9 +12,11 @@ export class AppComponent {
   textToConvert: string;
   password: string;
   conversionOutput: string;
+  aes: AesAlgorithm;
 
   constructor() {
     this.encryptMode = true;
+    this.aes = new AesAlgorithm();
   }
 
   changeMode() {
@@ -28,10 +31,10 @@ export class AppComponent {
     }
     else {
       if (this.encryptMode) {
-        this.conversionOutput = CryptoJS.AES.encrypt(this.textToConvert.trim(), this.password.trim()).toString();
+        this.conversionOutput = this.aes.encrypt(this.textToConvert.trim(), this.password.trim());
       }
       else {
-        this.conversionOutput = CryptoJS.AES.decrypt(this.textToConvert.trim(), this.password.trim()).toString(CryptoJS.enc.Utf8);
+        this.conversionOutput = this.aes.decrypt(this.textToConvert.trim(), this.password.trim());
       }
     }
   }

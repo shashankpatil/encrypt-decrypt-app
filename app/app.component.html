@@ -25,12 +25,13 @@
 </div>
 
 <div class="form-group">
-  <label for="txtPassword">Password</label>
+  <label for="txtSecretKey">Password</label>
   <input 
           type="text"
           class="form-control"
-          id="txtPassword"
-          placeholder="Enter {{ encryptMode ? 'encryption' : 'decryption' }} password"         
+          id="txtSecretKey"
+          placeholder="Enter {{ encryptMode ? 'encryption' : 'decryption' }} Secret Key"   
+          maxlength="16"      
           [(ngModel)]="password"
   >
 </div>
